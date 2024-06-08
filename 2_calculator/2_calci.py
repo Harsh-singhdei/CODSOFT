@@ -1,8 +1,10 @@
-#                          A BASIC CALCULATOR TO PERFORM BASIC MATHEMATICS OPERATIONS
+#                                    A BASIC CALCULATOR TO PERFORM BASIC MATHEMATICS OPERATIONS
 
+# Used for formating and making user interface better
 def print_separator():
     print("=" * 40)
 
+# Used to get i/p from the user
 def get_number(prompt):
     while True:
         try:
@@ -10,6 +12,7 @@ def get_number(prompt):
         except ValueError:
             print("Invalid input. Please enter a valid number.")
 
+# Used to get the operation from the user
 def get_operation():
     valid_operations = ["+", "-", "*", "/", "%", "**"]
     while True:
@@ -25,11 +28,13 @@ print_separator()
 
 num1 = get_number("Enter the first number: ")
 
+# making calculator to use again and again
 again = "y"
 while again.lower() != "n":
     num2 = get_number("Enter the second number: ")
     operand = get_operation()
 
+# making calculations
     if operand == "+":
         answer = num1 + num2
     elif operand == "-":
@@ -54,6 +59,14 @@ while again.lower() != "n":
 
     print_separator()
     again = input("Do you want to perform more operations? (y/n): ").strip().lower()
-    print_separator()
+    if(again == "y"):
+        continue
+    elif(again == "n"):
+        break
+    else:
+        print("Enter the valid input !!")
+    again = input("Do you want to perform more operations? (y/n): ").strip().lower()
+
+print_separator()
 
 print("Thank you for using the basic calculator!")
