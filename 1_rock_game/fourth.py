@@ -114,7 +114,6 @@ def game(choice,list,count,win,lose,tie):
         choice = input("Enter your choice(rock, paper or scissors): ").lower()
 
 
-
 print("\t__Welocme to the Rock Paper Scissors Game__")
 rules()
 
