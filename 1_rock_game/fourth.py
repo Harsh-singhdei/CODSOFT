@@ -33,22 +33,22 @@ def leader_board(count,win,lose,tie):
 # FUNCTION FOR SCORE TRACKING    
 def SCORE_TRACKING(result,com_choice,count,win,lose,tie):
     if result == 1:
-        print("Your choice: ",choice)
-        print("Computer choice: ", com_choice )
+        print("Your choice:     |", choice,"|")
+        print("Computer choice: |", com_choice,"|")
         tie += 1
         print()
         print("Its a Tie!!")
         print()
     elif result == 2:
-        print("Your choice: ",choice)
-        print("Computer choice: ", com_choice )
+        print("Your choice:     |", choice,"|")
+        print("Computer choice: |", com_choice,"|")
         lose += 1
         print()
         print("HARD Luck You Lost -_-")
         print()
     else:
-        print("Your choice: ",choice)
-        print("Computer choice: ", com_choice )
+        print("Your choice:     |", choice,"|")
+        print("Computer choice: |", com_choice,"|")
         win += 1
         print()
         print("BRAVO You won :) !!!")
@@ -94,14 +94,17 @@ def game(choice,list,count,win,lose,tie):
         count,win,lose,tie = SCORE_TRACKING(result,com_choice,count,win,lose,tie)
         
         replay = input("DO you want to play again(press : y for yes / n for no / L for leaderbord / r for rules )) : ").lower()
+        print()
         while(replay not in ("n","y","l","r")):
             replay=input("ENter the valid choice (i.e y/n/L): ")
         if(replay not in ("y","n","l","r")):
             replay = input("DO you want to play again(y for YES / n for NO").lower()
         if(replay == "r"):
+            print()
             rules()
             leader_board(count,win,lose,tie)
             replay = input("Do you want to play again? (y for yes / n for no): ").lower()
+            continue
         if(replay=="l"):
             leader_board(count,win,lose,tie)
             replay = input("Do you want to play again? (y for yes / n for no): ").lower()
@@ -118,6 +121,7 @@ rules()
 print("ENTER S for start N for no")
 str = input().lower()
 if(str == "s"):
+    print()
     choice = input("Enter your choice(rock, paper or scissors): ").lower()
     game(choice,list,count,win,lose,tie)
 else:
